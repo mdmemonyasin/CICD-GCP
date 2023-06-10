@@ -1,5 +1,5 @@
 # image
-FROM node:18-14.0-slim
+FROM node:slim
 
 # setting docker node memory limit
 ARG MAX_OLD_SPACE_SIZE=8192
