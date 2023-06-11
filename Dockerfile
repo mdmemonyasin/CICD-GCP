@@ -20,5 +20,5 @@ ENV NODE_ENV ${ENV}
 
 # Running the app
 
-CMD [ "npm", "run", "start" ]
+CMD [ "npm", "run", "start:prod" ]
 
