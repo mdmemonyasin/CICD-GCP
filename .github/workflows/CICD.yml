@@ -26,7 +26,7 @@ jobs:
       - uses: mr-smithers-excellent/docker-build-push@v6
         name: Build & push Docker image
         with:
-          image: single-outrider-389415/cicd-learning
+          image: cicd-learning/cicd
           tag: latest
           registry: gcr.io
           dockerfile: Dockerfile
@@ -35,7 +35,7 @@ jobs:
       - name: Deploy service to Cloud Run
         uses: stefda/action-cloud-run@v1.0
         with:
-          image: gcr.io/single-outrider-389415/cicd-learning
+          image: gcr.io/cicd-learning/cicd
           service: cicd-learning
           project: single-outrider-389415
           region: europe-north1
