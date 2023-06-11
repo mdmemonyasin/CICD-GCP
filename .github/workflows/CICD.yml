@@ -36,7 +36,7 @@ jobs:
         uses: stefda/action-cloud-run@v1.0
         with:
           image: gcr.io/single-outrider-389415/cicd
-          service: cicd-learning
+          service: cicd
           project: single-outrider-389415
           region: europe-north1
           service key: ${{ secrets.GCP_SERVICE_ACCOUNT_PK_JSON_BASE64 }}
