@@ -27,7 +27,7 @@ jobs:
         name: Build & push Docker image
         with:
           image: single-outrider-389415/cicd
-          tag: latest
+          tags: latest
           registry: gcr.io
           dockerfile: Dockerfile
           username: _json_key
