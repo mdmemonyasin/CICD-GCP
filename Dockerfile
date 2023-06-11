@@ -18,9 +18,6 @@ COPY . .
 
 ENV NODE_ENV ${ENV}
 
-# Building app
-RUN npm run build --verbose
-
 # Running the app
 
 CMD [ "npm", "run", "start" ]
