@@ -19,24 +19,24 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v2.3.2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v2.3.2 # Checks out your repository's code
+      - uses: actions/setup-node@v1 # Sets up Node.js environment
         with:
-          node-version: "18.14.0"
-      - uses: mr-smithers-excellent/docker-build-push@v6
+          node-version: "18.14.0" # Specifies the Node.js version to use
+      - uses: mr-smithers-excellent/docker-build-push@v6 # Builds and pushes a Docker image
         name: Build & push Docker image
         with:
-          image: single-outrider-389415/cicd
-          tags: latest
-          registry: gcr.io
-          dockerfile: Dockerfile
-          username: _json_key
-          password: ${{ secrets.GCP_SERVICE_ACCOUNT_PK_JSON }}
+          image: single-outrider-389415/cicd # Specifies the image name
+          tags: latest # Specifies the image tag
+          registry: gcr.io # Specifies the GCR registry
+          dockerfile: Dockerfile # Specifies the Dockerfile to use
+          username: _json_key # Specifies the service account key username
+          password: ${{ secrets.GCP_SERVICE_ACCOUNT_PK_JSON }} # Specifies the GCP service account key password from secrets
       - name: Deploy service to Cloud Run
-        uses: stefda/action-cloud-run@v1.0
+        uses: stefda/action-cloud-run@v1.0 # Deploys the service to Cloud Run
         with:
-          image: gcr.io/single-outrider-389415/cicd
-          service: cicd
-          project: single-outrider-389415
-          region: europe-north1
-          service key: ${{ secrets.GCP_SERVICE_ACCOUNT_PK_JSON_BASE64 }}
+          image: gcr.io/single-outrider-389415/cicd # Specifies the Docker image to deploy
+          service: cicd # Specifies the Cloud Run service name
+          project: single-outrider-389415 # Specifies the Google Cloud project ID
+          region: europe-north1 # Specifies the Cloud Run region
+          service key: ${{ secrets.GCP_SERVICE_ACCOUNT_PK_JSON_BASE64 }} # Specifies the service account key from secrets
