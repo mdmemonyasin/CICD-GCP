@@ -9,6 +9,16 @@ on:
     branches: [master, main]
   pull_request:
     branches: [master, main]
+  workflow_dispatch:
+    inputs:
+      instanceName:
+        description: "Instance Name"
+        required: true
+        type: choice
+        options:
+          - musk
+          - gates
+          - batman
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
