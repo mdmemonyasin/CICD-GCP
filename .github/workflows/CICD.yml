@@ -42,8 +42,8 @@ jobs:
           dockerfile: Dockerfile # Specifies the Dockerfile to use
           username: _json_key # Specifies the service account key username
           password: ${{ secrets.GCP_SERVICE_ACCOUNT_PK_JSON }} # Specifies the GCP service account key password from secrets
+      - uses: google-github-actions/deploy-cloudrun@v0.4.0 # Updated action to the official Google Cloud Run action
         name: Deploy service to Cloud Run
-        uses: google-github-actions/deploy-cloudrun@v0.4.0 # Updated action to the official Google Cloud Run action
         with:
           image: gcr.io/single-outrider-389415/cicd # Specifies the Docker image to deploy
           service: cicd # Specifies the Cloud Run service name
