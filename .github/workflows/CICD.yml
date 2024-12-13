@@ -30,7 +30,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: 'google-github-actions/auth@v2'
-      - id: 'auth'
+      id: 'auth'
       with:
         credentials_json: '${{ secrets.GCP_SERVICE_ACCOUNT_PK_JSON }}'
       - uses: actions/checkout@v2.3.2 # Checks out your repository's code
