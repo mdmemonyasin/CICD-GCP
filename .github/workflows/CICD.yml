@@ -29,6 +29,10 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - uses: 'google-github-actions/auth@v2'
+      - id: 'auth'
+      with:
+        credentials_json: '${{ secrets.GCP_SERVICE_ACCOUNT_PK_JSON }}'
       - uses: actions/checkout@v2.3.2 # Checks out your repository's code
       - uses: actions/setup-node@v1 # Sets up Node.js environment
         with:
@@ -49,5 +53,3 @@ jobs:
           service: cicd # Specifies the Cloud Run service name
           project_id: single-outrider-389415 # Specifies the Google Cloud project ID
           region: europe-north1 # Specifies the Cloud Run region
-        env:
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GCP_SERVICE_ACCOUNT_PK_JSON }} # Specifies the service account key from secrets
